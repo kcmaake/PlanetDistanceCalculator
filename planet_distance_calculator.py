@@ -4,62 +4,85 @@ print("\n\nPlanetary distances at your fingertips. No spaceship required.\n") #W
 time.sleep(2)
 
 
-
-planet_sun_distance = {
-    "mercury": 58000000,
-    "venus": 108000000,
-    "earth": 150000000,
-    "mars": 228000000,
-    "jupiter": 778000000,
-    "saturn": 1400000000,
-    "uranus": 2900000000,
-    "neptune": 4500000000,
-}
-
-# User input, first planet
-planet1_input = input("Enter name of first planet: ")
-planet1 = planet1_input.lower()
-time.sleep(2)
-
-planet2_input = input("\nEnter the name of your second planet: ")
-planet2 = planet2_input.lower()
-
-# if planet1 == "mercury":
-#     print("\nDid you know, Mercury is 58 million km from the sun.")
-# elif planet1 == "venus":
-#     print("\nDid you know, Venus is 108 million km from the sun.")
-# elif planet1 == "earth":
-#     print("\nDid you know, Earth is 150 million km from the sun.")
-# elif planet1 == "mars":
-#     print("\nDid you know, Mars is 228 million km from the sun.")
-# elif planet1 == "jupiter":
-#     print("\nDid you know, Jupiter is 778 million km from the sun.")
-# elif planet1 == "saturn":
-#     print("\nDid you know, Saturn is 1.4 billion km from the sun.")
-# elif planet1 == "uranus":
-#     print("\nDid you know, Uranus is 2.9 billion km from the sun.")
-# elif planet1 == "neptune":
-#     print("\nDid you know, Neptune is 4.5 billion km from the sun.")
-# elif planet1 == "":
-#     print("\nOops...you need to enter a name to continue")
-#     exit()
-# else:
-#     print("\nOops...that planet might not be in this Galaxy. Try again.")
-#     exit()
-# time.sleep(1)
-
+planets = [
+    {
+       "name": "mercury",
+       "distance": 58000000,
+       "fun_fact": "Did you know, Mercury is 58 million km from the sun."
+    },
+    {
+      "name": "venus",
+      "distance": 108000000,
+      "fun_fact": "Did you know, Venus is 108 million km from the sun." 
+    },
+    {
+      "name": "earth",
+      "distance": 150000000,
+      "fun_fact": "Did you know, Earth is 150 million km from the sun."
+    },
+    {
+      "name": "mars",
+      "distance": 228000000,
+      "fun_fact": "Did you know, Mars is 228 million km from the sun."
+    },
+    {
+      "name": "jupiter",
+      "distance": 778000000,
+      "fun_fact": "Did you know, Jupiter is 778 million km from the sun."
+    },
+    {
+      "name": "saturn",
+      "distance": 1400000000,
+      "fun_fact": "Did you know, Saturn is 1.4 billion km from the sun."
+    },
+    {
+      "name": "uranus",
+      "distance": 2900000000,
+      "fun_fact": "Did you know, Uranus is 2.9 billion km from the sun."
+    },
+    {
+      "name": "neptune",
+      "distance": 4500000000,
+      "fun_fact": "Did you know, Neptune is 4.5 billion km from the sun."
+    }
+]
 
 
+# Function checks user input, finds planet nd returns it's distance
+def get_planet_distance(planets):
+  if user_input == 'quit':
+    return None  
 
-# calculations
-distance_km = abs()
+  for planet in planets:
+    if user_input == planet["name"].lower():
+      planet_distance = planet["distance"]  
+      break 
 
-first_planet = planet1_input.title()
-second_planet = planet2_input.title()
+  if planet_distance is not None:  
+    return planet_distance  
+  else:
+    print(f"Planet '{user_input}' not found. Please try again.")
 
-template = f"\nThe distance between {first_planet} and {second_planet} is {distance_km} km."
+# User inputs
+user_input = input("Enter the name of a planet (or 'quit' to exit): ").lower()
+user_input1 = user_input.capitalize()
+planet_distance1 = get_planet_distance(planets)
 
-print(template)
+user_input = input("Enter the name of a planet (or 'quit' to exit): ").lower()
+user_input2 = user_input.capitalize()
+planet_distance2 = get_planet_distance(planets)
+ 
+
+# Calculations
+result = abs(planet_distance1 - planet_distance2)
+print(f'{user_input1} and {user_input2} are {result} km apart')
+
+
+      
+
+
+
+
 
 
 
